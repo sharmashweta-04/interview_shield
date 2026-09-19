@@ -38,7 +38,7 @@ export default function BreathingReset({ onComplete }: BreathingResetProps) {
   }, [phase, timeLeft, onComplete]);
 
   return (
-    <div className="absolute inset-0 z-50 flex items-center justify-center /95 backdrop-blur-xl">
+    <div className="absolute inset-0 z-50 flex items-center justify-center bg-slate-950/95 backdrop-blur-xl">
       <div className="max-w-md w-full p-8 flex flex-col items-center text-center">
         
         <AnimatePresence mode="wait">
@@ -50,11 +50,11 @@ export default function BreathingReset({ onComplete }: BreathingResetProps) {
               exit={{ opacity: 0, scale: 0.95 }}
               className="flex flex-col items-center gap-4"
             >
-              <div className="w-16 h-16 rounded-full bg-red-500/20 flex items-center justify-center mb-2">
-                <AlertTriangle className="w-8 h-8 text-red-500" />
+              <div className="w-16 h-16 rounded-full bg-rose-500/10 flex items-center justify-center mb-4 border border-rose-500/30">
+                <AlertTriangle className="w-8 h-8 text-rose-500" />
               </div>
-              <h2 className="text-3xl font-bold text-slate-800">High Stress Detected</h2>
-              <p className="text-slate-500 text-lg">Your voice indicates elevated tension. Let's do a quick reset before answering.</p>
+              <h2 className="text-3xl font-bold text-white tracking-tight">High Stress Detected</h2>
+              <p className="text-slate-400 text-lg">Your voice indicates elevated tension. Let's do a quick reset before answering.</p>
             </motion.div>
           ) : (
             <motion.div 
@@ -63,14 +63,14 @@ export default function BreathingReset({ onComplete }: BreathingResetProps) {
               animate={{ opacity: 1 }}
               className="flex flex-col items-center"
             >
-              <h2 className="text-2xl font-bold mb-12">
+              <h2 className="text-2xl font-bold mb-12 text-white tracking-widest uppercase text-sm">
                 {phase === "inhale" ? "Breathe In..." : phase === "hold" ? "Hold..." : "Exhale slowly..."}
               </h2>
 
               <div className="relative w-64 h-64 flex items-center justify-center mb-12">
                 {/* Expanding/contracting circle */}
                 <motion.div
-                  className="absolute rounded-full bg-indigo-100 border-2 border-indigo-300/50"
+                  className="absolute rounded-full bg-indigo-500/10 border border-indigo-400/50 shadow-[0_0_50px_rgba(99,102,241,0.2)]"
                   animate={{
                     width: phase === "inhale" ? "240px" : phase === "hold" ? "240px" : "100px",
                     height: phase === "inhale" ? "240px" : phase === "hold" ? "240px" : "100px",
@@ -81,7 +81,7 @@ export default function BreathingReset({ onComplete }: BreathingResetProps) {
                     ease: "linear"
                   }}
                 />
-                <div className="z-10 text-5xl font-black text-slate-800 tabular-nums">
+                <div className="z-10 text-5xl font-black text-white tabular-nums">
                   {timeLeft}
                 </div>
               </div>
@@ -98,9 +98,9 @@ export default function BreathingReset({ onComplete }: BreathingResetProps) {
         {phase !== "intro" && (
           <button 
             onClick={onComplete}
-            className="mt-12 text-sm text-slate-400 hover:text-slate-800 transition-colors"
+            className="mt-12 text-sm text-slate-500 hover:text-white transition-colors uppercase tracking-widest font-mono text-[10px]"
           >
-            Skip reset
+            Skip_Reset
           </button>
         )}
       </div>

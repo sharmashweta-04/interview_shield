@@ -272,7 +272,7 @@ export default function SessionPage() {
   if (!currentQuestion) return null;
 
   return (
-    <main className="flex flex-col min-h-screen bg-slate-50 text-slate-800 overflow-y-auto relative pb-20">
+    <main className="flex flex-col min-h-screen bg-slate-950 text-slate-200 overflow-y-auto relative pb-20">
       {/* Dynamic Background based on stress */}
       <div 
         className="absolute inset-0 z-0 transition-colors duration-1000 ease-in-out opacity-10 pointer-events-none"
@@ -283,15 +283,17 @@ export default function SessionPage() {
 
       {showBreathingReset && <BreathingReset onComplete={handleBreathingComplete} />}
 
-      <header className="p-6 flex justify-between items-center z-10 border-b border-slate-200 bg-white/60 backdrop-blur-md shadow-sm">
+      <header className="p-6 flex justify-between items-center z-10 border-b border-slate-800/50 bg-slate-950/60 backdrop-blur-md shadow-sm">
         <Link href="/" className="flex items-center gap-2">
-          <Shield className="w-6 h-6 text-indigo-500" />
-          <span className="font-bold text-slate-800">InterviewShield V3.0</span>
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-indigo-700 flex items-center justify-center shadow-lg border border-indigo-400/30">
+            <Shield className="w-4 h-4 text-white" />
+          </div>
+          <span className="font-bold text-white tracking-tight">InterviewShield V3.0</span>
         </Link>
         <div className="flex items-center gap-4">
-          <span className="text-sm text-slate-500">Target Role: <span className="text-slate-800 font-medium">{role}</span></span>
-          <div className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-xs font-bold border border-indigo-200">
-            Question {currentQuestionIndex + 1} of {questions.length}
+          <span className="text-sm text-slate-400 font-mono tracking-widest uppercase">Target Role: <span className="text-white font-bold">{role}</span></span>
+          <div className="px-3 py-1 bg-indigo-900/30 text-indigo-400 rounded-full text-xs font-mono tracking-widest uppercase border border-indigo-500/30">
+            Query {currentQuestionIndex + 1} // {questions.length}
           </div>
         </div>
       </header>
@@ -300,17 +302,18 @@ export default function SessionPage() {
         {/* Left Panel: Video/Question */}
         <div className="flex-1 flex flex-col gap-6">
           {/* Question Card */}
-          <div className="glass-card bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-            <div className="text-xs font-bold uppercase tracking-wider text-indigo-500 mb-4 flex items-center gap-2">
-              <Type className="w-4 h-4" /> {currentQuestion.type} Question
+          <div className="bg-slate-900 rounded-2xl p-8 border border-slate-800 shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="text-[10px] font-mono uppercase tracking-widest text-indigo-400 mb-4 flex items-center gap-2 relative z-10">
+              <Terminal className="w-4 h-4" /> {currentQuestion.type} Context
             </div>
-            <h2 className="text-2xl md:text-3xl font-semibold leading-relaxed text-slate-800">
+            <h2 className="text-2xl md:text-3xl font-bold leading-relaxed text-white relative z-10">
               "{currentQuestion.text}"
             </h2>
           </div>
 
           {/* Webcam & Live Transcript */}
-          <div className="flex-1 min-h-[400px] rounded-2xl border border-slate-200 relative overflow-hidden bg-slate-900 shadow-xl flex flex-col">
+          <div className="flex-1 min-h-[400px] rounded-2xl border border-slate-800 relative overflow-hidden bg-slate-950 shadow-2xl flex flex-col">
             <div className="relative flex-1">
               {!modelsLoaded && (
                 <div className="absolute inset-0 flex items-center justify-center bg-slate-800 text-white z-20">

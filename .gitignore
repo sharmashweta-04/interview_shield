@@ -14,3 +14,4 @@ backend/*.pyc
 backend/ravdess_speech.zip
 backend/ravdess_audio/
 DATASET.json
+*.zip

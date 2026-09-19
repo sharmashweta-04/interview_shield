@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { Shield, ChevronRight, Mic, CheckCircle2 } from "lucide-react";
+import { Shield, ChevronRight, Mic, CheckCircle2, Terminal } from "lucide-react";
 import { useInterviewStore } from "@/store/useInterviewStore";
 import Link from "next/link";
 
@@ -61,20 +61,22 @@ export default function SetupPage() {
   };
 
   return (
-    <main className="flex-1 flex flex-col relative min-h-screen text-slate-800 overflow-hidden p-6 bg-slate-50">
-      {/* Background */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-        <div className="absolute top-[-20%] right-[-10%] w-[50%] h-[50%] bg-indigo-200/40 rounded-full blur-[120px]" />
-      </div>
+    <main className="flex-1 flex flex-col relative min-h-screen bg-slate-950 text-slate-200 overflow-hidden p-6 md:p-12">
+      {/* Dark Premium Background Effects */}
+      <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-cyan-900/10 rounded-full blur-[120px] pointer-events-none" />
 
-      <header className="w-full flex justify-between items-center z-10 mb-12 max-w-4xl mx-auto">
-        <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center">
+      <header className="w-full flex justify-between items-center z-10 mb-12 max-w-4xl mx-auto border-b border-slate-800/50 pb-6">
+        <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-700 flex items-center justify-center shadow-lg shadow-indigo-500/20 border border-indigo-400/30">
             <Shield className="w-5 h-5 text-white" />
           </div>
-          <span className="text-lg font-bold tracking-tight">InterviewShield</span>
+          <span className="text-xl font-bold tracking-tight text-white">InterviewShield</span>
         </Link>
-        <div className="text-sm text-slate-500 font-medium">Session Setup</div>
+        <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-900 border border-slate-800 text-indigo-400 text-[10px] font-mono tracking-widest uppercase">
+          <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse"></span>
+          Setup_Sequence
+        </div>
       </header>
 
       <div className="flex-1 w-full max-w-4xl mx-auto z-10 flex flex-col justify-center pb-20">
@@ -86,19 +88,23 @@ export default function SetupPage() {
             className="flex flex-col gap-8 max-w-2xl mx-auto w-full"
           >
             <div>
-              <h2 className="text-3xl font-bold mb-2">Configure your session</h2>
-              <p className="text-slate-500">Select your target role and seniority to generate relevant questions.</p>
+              <h2 className="text-4xl font-extrabold mb-3 text-white tracking-tight">Configure Session Parameters</h2>
+              <p className="text-slate-400 text-lg">Define target profile for AI dynamic generation.</p>
             </div>
 
-            <div className="flex flex-col gap-6">
-              <div className="flex flex-col gap-3">
-                <label className="text-sm font-semibold text-slate-600 uppercase tracking-wider">Target Role</label>
+            <div className="bg-slate-900 rounded-2xl p-8 border border-slate-800 shadow-2xl flex flex-col gap-8 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
+              
+              <div className="flex flex-col gap-4 z-10">
+                <label className="text-xs font-bold text-indigo-400 uppercase tracking-widest flex items-center gap-2">
+                  <Terminal className="w-4 h-4" /> Target Role
+                </label>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                   {roles.map(r => (
                     <button 
                       key={r}
                       onClick={() => setRole(r)}
-                      className={`px-4 py-3 rounded-xl border text-sm font-medium transition-all ${role === r ? 'bg-indigo-100 border-indigo-300 text-indigo-700 shadow-sm' : 'bg-white border-slate-200 text-slate-500 hover:bg-slate-50'}`}
+                      className={`px-4 py-3 rounded-xl border text-sm font-medium transition-all ${role === r ? 'bg-indigo-600/20 border-indigo-500 text-indigo-300 shadow-[0_0_15px_rgba(99,102,241,0.15)]' : 'bg-slate-950 border-slate-800 text-slate-400 hover:bg-slate-900 hover:border-slate-700'}`}
                     >
                       {r}
                     </button>
@@ -106,14 +112,16 @@ export default function SetupPage() {
                 </div>
               </div>
 
-              <div className="flex flex-col gap-3 mt-4">
-                <label className="text-sm font-semibold text-slate-600 uppercase tracking-wider">Seniority Level</label>
+              <div className="flex flex-col gap-4 z-10 mt-2">
+                <label className="text-xs font-bold text-indigo-400 uppercase tracking-widest flex items-center gap-2">
+                  <Terminal className="w-4 h-4" /> Seniority Level
+                </label>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                   {levels.map(l => (
                     <button 
                       key={l}
                       onClick={() => setLevel(l)}
-                      className={`px-4 py-3 rounded-xl border text-sm font-medium transition-all ${level === l ? 'bg-indigo-100 border-indigo-300 text-indigo-700 shadow-sm' : 'bg-white border-slate-200 text-slate-500 hover:bg-slate-50'}`}
+                      className={`px-4 py-3 rounded-xl border text-sm font-medium transition-all ${level === l ? 'bg-indigo-600/20 border-indigo-500 text-indigo-300 shadow-[0_0_15px_rgba(99,102,241,0.15)]' : 'bg-slate-950 border-slate-800 text-slate-400 hover:bg-slate-900 hover:border-slate-700'}`}
                     >
                       {l}
                     </button>
@@ -122,12 +130,12 @@ export default function SetupPage() {
               </div>
             </div>
 
-            <div className="flex justify-end mt-8">
+            <div className="flex justify-end mt-4">
               <button 
                 onClick={() => setStep(2)}
-                className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-bold transition-all shadow-md"
+                className="group flex items-center gap-3 bg-indigo-600 text-white px-8 py-4 rounded-xl font-bold shadow-2xl shadow-indigo-500/20 hover:bg-indigo-500 transition-all hover:scale-105 active:scale-95 border border-indigo-400/30"
               >
-                Continue <ChevronRight className="w-5 h-5" />
+                Proceed to Hardware Check <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
           </motion.div>
@@ -137,54 +145,65 @@ export default function SetupPage() {
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex flex-col gap-8 w-full max-w-lg mx-auto"
+            className="flex flex-col gap-8 w-full max-w-xl mx-auto"
           >
             <div className="text-center">
-              <h2 className="text-3xl font-bold mb-2">Hardware Check</h2>
-              <p className="text-slate-500">Secure microphone permissions before starting.</p>
+              <h2 className="text-4xl font-extrabold mb-3 text-white tracking-tight">Hardware Verification</h2>
+              <p className="text-slate-400 text-lg">Secure audio channels for telemetry processing.</p>
             </div>
 
-            <div className="glass-card bg-white rounded-2xl p-8 flex flex-col items-center justify-center gap-6 border border-slate-200 shadow-sm">
-              <div className={`w-24 h-24 rounded-full flex items-center justify-center transition-all duration-500 ${micStatus === 'idle' ? 'bg-slate-50' : micStatus === 'testing' ? 'bg-indigo-50 animate-pulse' : micStatus === 'error' ? 'bg-rose-50' : 'bg-emerald-50'}`}>
+            <div className="bg-slate-900 rounded-2xl p-10 flex flex-col items-center justify-center gap-8 border border-slate-800 shadow-2xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
+              
+              <div className="flex items-center justify-between w-full border-b border-slate-800 pb-4 mb-4 z-10">
+                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Mic_Status</span>
+                <span className={`text-[10px] font-mono tracking-widest uppercase px-2 py-1 rounded ${micStatus === 'ready' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30' : micStatus === 'testing' ? 'bg-indigo-500/10 text-indigo-400 border border-indigo-500/30' : 'bg-slate-800 text-slate-400'}`}>
+                  {micStatus}
+                </span>
+              </div>
+
+              <div className={`w-32 h-32 rounded-full flex items-center justify-center transition-all duration-500 z-10 relative ${micStatus === 'idle' ? 'bg-slate-950 border border-slate-800' : micStatus === 'testing' ? 'bg-indigo-900/30 border border-indigo-500/50' : micStatus === 'error' ? 'bg-rose-900/30 border border-rose-500/50' : 'bg-emerald-900/30 border border-emerald-500/50 shadow-[0_0_30px_rgba(16,185,129,0.2)]'}`}>
+                {micStatus === 'testing' && <div className="absolute inset-0 rounded-full border-2 border-indigo-500/30 animate-ping"></div>}
+                
                 {micStatus === 'ready' ? (
-                  <CheckCircle2 className="w-10 h-10 text-emerald-500" />
+                  <CheckCircle2 className="w-12 h-12 text-emerald-400" />
                 ) : (
-                  <Mic className={`w-10 h-10 ${micStatus === 'testing' ? 'text-indigo-500' : micStatus === 'error' ? 'text-rose-500' : 'text-slate-400'}`} />
+                  <Mic className={`w-12 h-12 ${micStatus === 'testing' ? 'text-indigo-400 animate-pulse' : micStatus === 'error' ? 'text-rose-400' : 'text-slate-500'}`} />
                 )}
               </div>
 
-              <div className="text-center">
-                <h3 className="font-semibold text-lg text-slate-800 mb-1">
-                  {micStatus === 'idle' ? 'Microphone Access' : micStatus === 'testing' ? 'Requesting Permission...' : micStatus === 'error' ? 'Permission Denied' : 'Microphone Ready'}
+              <div className="text-center z-10">
+                <h3 className="font-bold text-xl text-white mb-2">
+                  {micStatus === 'idle' ? 'Microphone Access Required' : micStatus === 'testing' ? 'Awaiting Authorization...' : micStatus === 'error' ? 'Permission Denied' : 'Hardware Secured'}
                 </h3>
-                <p className={`text-sm ${micStatus === 'error' ? 'text-rose-500 font-medium' : 'text-slate-500'}`}>
-                  {micStatus === 'idle' ? 'Click to grant browser access.' : micStatus === 'testing' ? 'Please click "Allow" in your browser prompt.' : micStatus === 'error' ? 'You must allow microphone access to use InterviewShield.' : 'Hardware secured. Ready to begin.'}
+                <p className={`text-sm ${micStatus === 'error' ? 'text-rose-400 font-medium' : 'text-slate-400'}`}>
+                  {micStatus === 'idle' ? 'Click below to grant browser access to your microphone.' : micStatus === 'testing' ? 'Please click "Allow" in your browser prompt.' : micStatus === 'error' ? 'You must allow microphone access to use InterviewShield.' : 'Audio channel open. System is ready to deploy.'}
                 </p>
               </div>
 
               {(micStatus === 'idle' || micStatus === 'error') && (
                 <button 
                   onClick={handleMicTest}
-                  className="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-6 py-2 rounded-lg font-bold border border-indigo-200 transition-colors"
+                  className="bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 px-8 py-3 rounded-xl font-bold border border-indigo-500/50 transition-colors z-10 uppercase tracking-wider text-sm"
                 >
-                  Test Hardware
+                  Authorize Hardware
                 </button>
               )}
             </div>
 
-            <div className="flex justify-between mt-8 w-full">
+            <div className="flex justify-between items-center mt-6 w-full">
               <button 
                 onClick={() => setStep(1)}
-                className="px-6 py-3 text-slate-500 hover:text-slate-800 font-medium transition-colors"
+                className="px-6 py-3 text-slate-400 hover:text-white font-medium transition-colors uppercase tracking-wider text-xs"
               >
-                Back
+                Back to Config
               </button>
               <button 
                 onClick={handleStart}
                 disabled={micStatus !== 'ready' || backendStatus !== 'ready'}
-                className={`flex items-center gap-2 px-8 py-3 rounded-xl font-bold transition-all ${micStatus === 'ready' && backendStatus === 'ready' ? 'bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg' : 'bg-slate-200 text-slate-400 cursor-not-allowed'}`}
+                className={`flex items-center gap-2 px-8 py-4 rounded-xl font-bold transition-all uppercase tracking-wider text-sm ${micStatus === 'ready' && backendStatus === 'ready' ? 'bg-indigo-600 hover:bg-indigo-500 text-white shadow-[0_0_20px_rgba(99,102,241,0.3)] border border-indigo-400/50' : 'bg-slate-800 text-slate-500 cursor-not-allowed border border-slate-700'}`}
               >
-                Start Interview Session
+                Deploy Session
               </button>
             </div>
           </motion.div>

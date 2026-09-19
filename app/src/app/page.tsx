@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Shield, Activity, Play, Terminal, ArrowRight, Video } from "lucide-react";
 import Link from "next/link";
+import LiveAudioDemo from "@/components/LiveAudioDemo";
 
 export default function Home() {
   return (
@@ -73,53 +74,7 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="relative"
           >
-            <div className="bg-slate-900 rounded-2xl p-8 relative overflow-hidden border border-slate-800 shadow-2xl">
-              {/* Glow overlay */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
-
-              <div className="flex justify-between items-center mb-8 border-b border-slate-800 pb-4">
-                <div className="flex items-center gap-3">
-                  <Terminal className="w-5 h-5 text-indigo-400" />
-                  <div>
-                    <h3 className="font-bold text-sm tracking-widest uppercase text-white">Live Telemetry</h3>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-950 border border-slate-800 text-emerald-400 text-[10px] font-mono tracking-widest uppercase">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                  Active_Link
-                </div>
-              </div>
-
-              <div className="flex items-end gap-1.5 h-32 w-full opacity-90 mb-8">
-                {/* Sleek audio visualizer */}
-                {[...Array(30)].map((_, i) => {
-                  const height = 10 + Math.random() * 80;
-                  const isStressed = i > 18 && i < 24;
-                  return (
-                    <motion.div 
-                      key={i}
-                      animate={{ height: [`${height}%`, `${height + (Math.random() * 30 - 15)}%`, `${height}%`] }}
-                      transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: i * 0.05 }}
-                      className={`flex-1 rounded-t-sm ${isStressed ? 'bg-indigo-400' : 'bg-slate-700'}`}
-                    />
-                  )
-                })}
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/50">
-                  <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">Pacing_WPM</p>
-                  <p className="text-3xl font-mono text-white">125</p>
-                </div>
-                <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/50">
-                  <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">Expression_State</p>
-                  <div className="flex items-center justify-between">
-                    <p className="text-xl font-mono text-white uppercase mt-1">Neutral</p>
-                    <div className="w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_8px_#60a5fa]" />
-                  </div>
-                </div>
-              </div>
-            </div>
+            <LiveAudioDemo />
             
             {/* Floating STT snippet */}
             <motion.div 
@@ -128,11 +83,11 @@ export default function Home() {
               className="absolute -bottom-6 -left-6 bg-slate-900/90 backdrop-blur-md rounded-xl p-4 shadow-2xl border border-indigo-500/30 flex flex-col gap-2 w-72"
             >
               <div className="flex items-center justify-between border-b border-slate-800 pb-2">
-                <span className="text-[10px] font-mono text-indigo-400 uppercase tracking-widest">Speech-To-Text Output</span>
+                <span className="text-[10px] font-mono text-indigo-400 uppercase tracking-widest">System Readiness</span>
                 <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
               </div>
               <p className="text-sm font-mono text-slate-300 leading-relaxed">
-                <span className="text-indigo-500">{">"}</span> So I increased the conversion rate by... um... <span className="text-rose-400 border-b border-rose-400 border-dashed">about</span> 15%.
+                <span className="text-indigo-500">{">"}</span> Test your microphone before starting to ensure edge ML models can lock onto audio telemetry.
               </p>
             </motion.div>
           </motion.div>

@@ -2,6 +2,7 @@
 
 <div align="center">
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Vercel-black?style=for-the-badge&logo=vercel&logoColor=white)](https://app-smoky-nine-78.vercel.app)
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsharmashweta-04%2Finterview_shield&root-directory=app)
 [![Next.js](https://img.shields.io/badge/Next.js-16.2-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
@@ -11,7 +12,9 @@
 
 **An intelligent interview preparation coach featuring edge-deployed ML telemetry, live vocal stress analysis, real-time pacing feedback, and automated performance debriefs.**
 
-[Live Demo](#-deploy-to-vercel) • [UI Showcase](#-ui-showcase--interactive-gallery) • [Features](#-core-features) • [Quick Start](#-quick-start) • [Architecture](#-architecture)
+🌐 **Live Application:** [https://app-smoky-nine-78.vercel.app](https://app-smoky-nine-78.vercel.app)
+
+[Live Demo](https://app-smoky-nine-78.vercel.app) • [UI Showcase](#-ui-showcase--interactive-gallery) • [Features](#-core-features) • [Quick Start](#-quick-start) • [Architecture](#-architecture)
 
 </div>
 
@@ -23,13 +26,15 @@
 
 ---
 
-## 🚀 Deploy to Vercel
+## 🚀 Live Deployment & Vercel Hosting
 
-You can deploy the full **InterviewShield** frontend to Vercel in 1-click:
+The application is deployed live on Vercel:
+
+🔗 **Production URL:** [https://app-smoky-nine-78.vercel.app](https://app-smoky-nine-78.vercel.app)
+
+You can also fork or deploy your own instance in 1-click:
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsharmashweta-04%2Finterview_shield&root-directory=app)
-
-> **Deployment Note:** If configuring manually in the Vercel Dashboard, set the **Root Directory** to `app`.
 
 ---
 

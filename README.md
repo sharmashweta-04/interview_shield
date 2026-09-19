@@ -2,8 +2,7 @@
 
 <div align="center">
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Vercel-black?style=for-the-badge&logo=vercel&logoColor=white)](https://app-smoky-nine-78.vercel.app)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsharmashweta-04%2Finterview_shield&root-directory=app)
+[![Live Demo](https://img.shields.io/badge/Live_App-Visit_Vercel-6366F1?style=for-the-badge&logo=vercel&logoColor=white)](https://app-smoky-nine-78.vercel.app)
 [![Next.js](https://img.shields.io/badge/Next.js-16.2-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -12,9 +11,9 @@
 
 **An intelligent interview preparation coach featuring edge-deployed ML telemetry, live vocal stress analysis, real-time pacing feedback, and automated performance debriefs.**
 
-🌐 **Live Application:** [https://app-smoky-nine-78.vercel.app](https://app-smoky-nine-78.vercel.app)
+### 🌐 [Click Here to Open the Live Web Application](https://app-smoky-nine-78.vercel.app)
 
-[Live Demo](https://app-smoky-nine-78.vercel.app) • [UI Showcase](#-ui-showcase--interactive-gallery) • [Features](#-core-features) • [Quick Start](#-quick-start) • [Architecture](#-architecture)
+[Live App](https://app-smoky-nine-78.vercel.app) • [UI Showcase](#-ui-showcase--interactive-gallery) • [Features](#-core-features) • [Architecture](#-architecture) • [Quick Start](#-quick-start)
 
 </div>
 
@@ -26,15 +25,13 @@
 
 ---
 
-## 🚀 Live Deployment & Vercel Hosting
+## 🌐 Live Application on Vercel
 
-The application is deployed live on Vercel:
+The application is deployed and running live on Vercel:
 
-🔗 **Production URL:** [https://app-smoky-nine-78.vercel.app](https://app-smoky-nine-78.vercel.app)
-
-You can also fork or deploy your own instance in 1-click:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsharmashweta-04%2Finterview_shield&root-directory=app)
+> ### 🔗 **[https://app-smoky-nine-78.vercel.app](https://app-smoky-nine-78.vercel.app)**
+>
+> Instant browser access with full microphone hardware testing, real-time speech recognition, and facial expression analysis.
 
 ---
 
@@ -107,6 +104,7 @@ Comprehensive performance breakdown with automated verbal pacing analysis and do
 
 | Feature | Description | Engine / Stack |
 | :--- | :--- | :--- |
+| **Live Web App** | Hosted edge deployment with zero configuration | Vercel Edge Platform |
 | **Real-time Audio Telemetry** | Edge frequency detection and audio analysis | Web Audio API / MediaStream |
 | **Speech-to-Text Pacing** | Live transcription with real-time WPM calculation | Web Speech API |
 | **Filler Word Counter** | Proactive warning prompts upon detecting hesitation words | Client-side Regex Engine |
@@ -136,8 +134,8 @@ flowchart TB
         ML["RAVDESS Speech Emotion Classification"]
     end
 
-    subgraph Cloud ["Cloud & Deployment"]
-        Vercel["Vercel Edge Platform (Frontend Host)"]
+    subgraph Cloud ["Cloud Hosting"]
+        Vercel["Vercel Edge Platform (https://app-smoky-nine-78.vercel.app)"]
         GH["GitHub Repository"]
     end
 
@@ -155,7 +153,7 @@ flowchart TB
 
 ---
 
-## 💻 Quick Start
+## 💻 Quick Start (Local Development)
 
 ### Prerequisites
 - **Node.js**: `v18.18+` or `v20+`
@@ -178,32 +176,13 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to experience InterviewShield.
+Open [http://localhost:3000](http://localhost:3000) with your browser to experience InterviewShield locally.
 
 ### 4. Build for Production
 ```bash
 npm run build
 npm run start
 ```
-
----
-
-## 🌐 Deploying to Vercel (Step-by-Step)
-
-### Option 1: 1-Click Deployment (Recommended)
-Click the badge below to import and deploy directly to Vercel:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsharmashweta-04%2Finterview_shield&root-directory=app)
-
-### Option 2: Manual Import via Vercel Dashboard
-1. Go to [vercel.com/new](https://vercel.com/new).
-2. Select your repository: **`sharmashweta-04/interview_shield`**.
-3. In **Project Settings**:
-   - **Root Directory**: Select `app` (Click **Edit** and choose `app`).
-   - **Framework Preset**: Next.js (automatically detected).
-4. (Optional) Add Environment Variables:
-   - `NEXT_PUBLIC_BACKEND_URL`: URL of your backend or leave empty for standalone browser ML mode.
-5. Click **Deploy**.
 
 ---
 
